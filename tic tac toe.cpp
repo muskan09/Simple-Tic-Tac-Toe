@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cctype>
 #include <io.h>
 #include <fcntl.h>
@@ -66,32 +66,32 @@ void printGame()
         for (int i = 0; i < 5; ++i)
         {
             if (i == 0) {
-                if (board[0] == 0) b[i][1] = L'O';
-                else if (board[0] == 1) b[i][1] = L'X';
-                if (board[1] == 0) b[i][5] = L'O';
-                else if (board[1] == 1) b[i][5] = L'X';
-                if (board[2] == 0) b[i][9] = L'O';
-                else if (board[2] == 1) b[i][9] = L'X';
+                if (board[0] == 0) b[i][1] = L'♥';
+                else if (board[0] == 1) b[i][1] = L'♦';
+                if (board[1] == 0) b[i][5] = L'♥';
+                else if (board[1] == 1) b[i][5] = L'♦';
+                if (board[2] == 0) b[i][9] = L'♥';
+                else if (board[2] == 1) b[i][9] = L'♦';
                 
                 wcout << b[i] << endl;
             }
             else if (i == 2) {
-                if (board[3] == 0) b[i][1] = L'O';
-                else if (board[3] == 1) b[i][1] = L'X';
-                if (board[4] == 0) b[i][5] = L'O';
-                else if (board[4] == 1) b[i][5] = L'X';
-                if (board[5] == 0) b[i][9] = L'O';
-                else if (board[5] == 1) b[i][9] = L'X';
+                if (board[3] == 0) b[i][1] = L'♥';
+                else if (board[3] == 1) b[i][1] = L'♦';
+                if (board[4] == 0) b[i][5] = L'♥';
+                else if (board[4] == 1) b[i][5] = L'♦';
+                if (board[5] == 0) b[i][9] = L'♥';
+                else if (board[5] == 1) b[i][9] = L'♦';
 
                 wcout << b[i] << endl;
             }
             else if (i == 4) {
-                if (board[6] == 0) b[i][1] = L'O';
-                else if (board[6] == 1) b[i][1] = L'X';
-                if (board[7] == 0) b[i][5] = L'O';
-                else if (board[7] == 1) b[i][5] = L'X';
-                if (board[8] == 0) b[i][9] = L'O';
-                else if (board[8] == 1) b[i][9] = L'X';
+                if (board[6] == 0) b[i][1] = L'♥';
+                else if (board[6] == 1) b[i][1] = L'♦';
+                if (board[7] == 0) b[i][5] = L'♥';
+                else if (board[7] == 1) b[i][5] = L'♦';
+                if (board[8] == 0) b[i][9] = L'♥';
+                else if (board[8] == 1) b[i][9] = L'♦';
 
                 wcout << b[i] << endl;
             }
@@ -163,7 +163,7 @@ void printRules(void)
 char choose_token()
 {
     wcout << endl << "----------------------------------" << endl;
-    wcout << "what do you want to be, X or O?" << endl;
+    wcout << "what do you want to be, (d)iamond or (h)eart?" << endl;
     wcout << "Your choice: ";
     wchar_t c='-';
     do {
@@ -172,7 +172,7 @@ char choose_token()
             c = 'O';
         }
         c = toupper(c);
-    } while (c != 'X' && c != 'O');
+    } while (c != 'D' && c != 'H');
 
     wcout <<endl<< "----------------------------------" << endl;
     
@@ -180,7 +180,7 @@ char choose_token()
 }
 void changeBoard(int m)
 {
-    if (token == 'O') {
+    if (token == 'H') {
         board[m - 1] = 0;
     }
     else {
@@ -197,7 +197,7 @@ void computerMove() {
    // int CompMove = rand() % validMoves.size();
     int CompMove = smartMove(validMoves);
     wcout << "Computer's move: " << CompMove + 1 << endl;
-    if (token == 'O') board[CompMove] = 1;
+    if (token == 'H') board[CompMove] = 1;
     else board[CompMove] = 0;
     
 }
